@@ -1,15 +1,10 @@
 import React from "react";
-import clsx from 'clsx';
 import { makeStyles, Theme } from "@material-ui/core/styles";
 
-import HomeComponent from "./index";
 import MypageComponent from "../Mypage/index";
 import JobOfferComponent from "../JobOffer/index";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import ResumeComponent from "../Resume/index";
+
 import {
     Box,
     Tab,
@@ -18,6 +13,7 @@ import {
 } from "@material-ui/core";
 
 import {
+    AssignmentInd as AssignmentIndIcon,
     PermIdentity as PermIdentityIcon,
     Work as WorkIcon,
 } from "@material-ui/icons";
@@ -29,14 +25,14 @@ interface TabPanelProps {
 }
 
 const useStyles = makeStyles((theme) => ({
-    rootHome: {
-        paddingTop: "50px",
-    },
     rootCard: {
         maxWidth: "450px",
         marginTop: "20px",
         marginLeft: "10px",
         marginRight: "10px",
+    },
+    rootHome: {
+        paddingTop: "50px",
     },
     media: {
         height: 0,
@@ -90,8 +86,10 @@ function HomePC() {
                 textColor="primary"
                 aria-label="scrollable force tabs example"
             >
-                <Tab label="Mypage" icon={<PermIdentityIcon/>} {...a11yProps(0)} />
-                <Tab label="jobOffer" icon={<WorkIcon/>} {...a11yProps(1)} />
+                <Tab label="マイページ" icon={<PermIdentityIcon/>} {...a11yProps(0)} />
+                <Tab label="求人情報" icon={<WorkIcon/>} {...a11yProps(1)} />
+                <Tab label="履歴書" icon={<AssignmentIndIcon/>} {...a11yProps(2)} />
+
             </Tabs>
             {/*マイページ*/}
             <TabPanel value={value} index={0}>
@@ -101,6 +99,11 @@ function HomePC() {
             <TabPanel value={value} index={1}>
                 <JobOfferComponent/>
             </TabPanel>
+            {/*履歴書*/}
+            <TabPanel value={value} index={2}>
+                <ResumeComponent/>
+            </TabPanel>
+
         </div>
     )
 }

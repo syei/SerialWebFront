@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-function MypagePC() {
+function ResumePC() {
     const classes = useStyles();
 
     return (
@@ -140,4 +140,4 @@ function MypagePC() {
     )
 }
 
-export default MypagePC;
+export default ResumePC;
