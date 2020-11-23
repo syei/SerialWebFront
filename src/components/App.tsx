@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch, BrowserRouter, Redirect, Link} from "react-router-dom";
 import logo from '../images/logo.png';
 import './App.css';
+import Amplify from "aws-amplify";
 
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
@@ -32,6 +33,16 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
+  // Amplify.configure({
+  //   Auth: {
+  //     identityPoolId: '',
+  //     region: 'ap-northeast-1',
+  //     userPoolId: 'ap-northeast-1_[ID]',
+  //     userPoolWebClientId: '[ID]',
+  //     authenticationFlowType: 'USER_PASSWORD_AUTH',
+  //   },
+  // })
+
 
   return (
     <div>
@@ -43,18 +54,8 @@ function App() {
                   <MenuIcon />
                 </IconButton>
                 <img src={logo} id="logo"/>
-                {/* <Typography variant="h6" color="inherit">
-                  Photos
-                </Typography> */}
               </Toolbar>
             </AppBar>
-
-          {/* <div className="column-1">
-              イベント情報
-            </div> */}
-
-
-          {/*  */}
           <div>
             <Switch>
               <Route exact path="/" component={HomeComponent}/>

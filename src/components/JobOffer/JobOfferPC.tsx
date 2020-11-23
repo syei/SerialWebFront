@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
     rootCard: {
         maxWidth: "450px",
-        height: "300px",
+        height: "auto",
         marginTop: "20px",
         marginLeft: "10px",
         marginRight: "10px",

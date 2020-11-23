@@ -11,10 +11,8 @@ import {
     Paper
 } from "@material-ui/core";
 
-import BasicInfoComponent from "./BasicInfo/index";
-import SkillSetComponent from "./SkillSet/index";
-import BusinessContentComponent from "./BusinessContent/index";
-import OtherComponent from "./Other/index";
+
+import sea from '../../images/sea.jpg'
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -80,51 +78,14 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-function ResumePC() {
+function BasicInfoPC() {
     const classes = useStyles();
-    const [value, setValue] = React.useState(0);
-
-    const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-        setValue(newValue);
-    };
 
     return (
         <div className={classes.root}>
-            <Tabs
-                orientation="vertical"
-                variant="scrollable"
-                value={value}
-                onChange={handleChange}
-                aria-label="Vertical tabs example"
-                className={classes.tabs}
-            >
-                <Tab label="基本情報" {...a11yProps(0)} />
-                <Tab label="スキルセット" {...a11yProps(1)} />
-                <Tab label="業務内容" {...a11yProps(2)} />
-                <Tab label="その他" {...a11yProps(3)} />
-            </Tabs>
-            <div className={classes.rootResume}>
-                <p className={classes.headerTitle}>
-                    職務経歴書
-                </p>
-                <hr className={classes.headerLine}/>
-                {/*経歴のジャンルを選択して修正する画面*/}
-                <TabPanel value={value} index={0}>
-                    <BasicInfoComponent/>
-                </TabPanel>
-                <TabPanel value={value} index={1}>
-                    <SkillSetComponent/>
-                </TabPanel>
-                <TabPanel value={value} index={2}>
-                    <BusinessContentComponent/>
-                </TabPanel>
-                <TabPanel value={value} index={3}>
-                    <OtherComponent/>
-                </TabPanel>
-            </div>
+
         </div>
     );
-
 }
 
-export default ResumePC;
+export default BasicInfoPC;

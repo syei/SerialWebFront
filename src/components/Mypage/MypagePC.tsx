@@ -1,5 +1,7 @@
 import React from "react";
+import axios from "axios";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { Auth } from 'aws-amplify';
 
 import {
     Grid,
@@ -20,8 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
             minHeight: "1040px",
             borderTopLeftRadius: "25px",
             borderTopRightRadius: "25px",
-
-},
+        },
         rootInfoPaper: {
             paddingTop: "10px",
             paddingBottom: "30px",
@@ -64,6 +65,37 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function MypagePC() {
     const classes = useStyles();
+    // function test() {
+    //     axios
+    //         .get(
+    //             'https://akd1wjwtf1.execute-api.ap-northeast-1.amazonaws.com/Prod/sample?number=1000')
+    //         // 'https://y8vqku4nnh.execute-api.ap-northeast-1.amazonaws.com/Prod/sample?number=1000')
+    //         .then((response: any) => (
+    //             console.log(response)
+    //         ))
+    // }
+
+    const username = "test";
+    const password = "test";
+
+    // function login() {
+    //     Auth.currentAuthenticatedUser()
+    //         .then(user => {
+    //             return Auth.changePassword(user, password, '[PASSWORD]');
+    //         })
+    //         .then(data => console.log(data))
+    //         .catch(err => console.log(err));
+    //
+    //     // Auth.signIn(username, password)
+    //     //     .then((resposne) => {
+    //     //         localStorage.setItem("idToken", resposne.signInUserSession.idToken.jwtToken);
+    //     //     })
+    //     //     .catch((err) => {
+    //     //         console.log(err);
+    //     //         // alert('ログインに失敗しました', err);
+    //     //         return;
+    //     //     });
+    // }
 
     return (
         <div className={classes.root}>
@@ -72,6 +104,8 @@ function MypagePC() {
                     <Paper className={classes.rootItemPaper}>
                         <img src={sea} className={classes.mypageImg}/>
                     </Paper>
+                    {/*<button onClick={test}>TEST</button>*/}
+                    {/*<button onClick={login}>LOGIN</button>*/}
                 </Grid>
                 <Grid item xs={7}>
                     <Paper className={classes.rootInfoPaper}>
