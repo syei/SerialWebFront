@@ -2,88 +2,113 @@ import React from "react";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import {
-    Box,
     Grid,
-    Tab,
-    Tabs,
+    InputLabel,
+    FormControl,
+    MenuItem,
+    Select,
     TextField,
-    Typography,
-    Paper
 } from "@material-ui/core";
 
-
-import sea from '../../images/sea.jpg'
-
-interface TabPanelProps {
-    children?: React.ReactNode;
-    index: any;
-    value: any;
-}
-
-function TabPanel(props: TabPanelProps) {
-    const { children, value, index, ...other } = props;
-
-    return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`vertical-tabpanel-${index}`}
-            aria-labelledby={`vertical-tab-${index}`}
-            {...other}
-        >
-            {value === index && (
-                <Box p={3}>
-                    <Typography>{children}</Typography>
-                </Box>
-            )}
-        </div>
-    );
-}
-
-function a11yProps(index: any) {
-    return {
-        id: `vertical-tab-${index}`,
-        'aria-controls': `vertical-tabpanel-${index}`,
-    };
-}
+import initial from "../../../utils/initial.json";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             flexGrow: 1,
             backgroundColor: theme.palette.background.paper,
-            display: 'flex',
+            display: 'inline-block',
             // height: 224,
             minHeight: "550px",
         },
-        rootResume: {
-            marginRight: "auto",
-            marginLeft: "auto",
+        resumeName: {
+            minWidth: "300px",
+            margin: "15px",
         },
-        headerLine: {
-            width: "550px",
-            aligin: "center",
+        resumeInitial: {
+            minWidth: "200px",
+            margin: "15px",
         },
-        headerTitle: {
-            textAlign: "center",
-            fontSize: "30px",
+        basicTitle: {
+            textAlign: "left",
+            fontSize: "25px",
             fontWeight: 500,
         },
-        tabs: {
-            borderRight: `1px solid ${theme.palette.divider}`,
-            minWidth: "250px",
+        formControl: {
+            minWidth: "100px",
+            margin: "15px",
         },
-
     }),
 );
 
 
 function BasicInfoPC() {
     const classes = useStyles();
+    const [age, setAge] = React.useState('');
+    const [fName, setFName] = React.useState('');
+    const [gName, setGName] = React.useState('');
+
+    const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+        setAge(event.target.value as string);
+    };
+    const fNameChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+        setFName(event.target.value as string);
+     };
+    const gNameChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+        setGName(event.target.value as string);
+    };
 
     return (
         <div className={classes.root}>
+            <p className={classes.basicTitle}>基本情報</p>
+            <TextField
+                id="standard-multiline-flexible"
+                multiline
+                className={classes.resumeName}
+                label="氏名"
+            />
+            <FormControl className={classes.formControl}>
+                <InputLabel id="demo-simple-select-label">名</InputLabel>
+                <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={fName}
+                    onChange={fNameChange}
+                >
+                    {initial.map(ini => (
+                        <MenuItem value={ini.value}>{ini.initial}</MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
 
+            <FormControl className={classes.formControl}>
+            <InputLabel id="demo-simple-select-label">姓</InputLabel>
+            <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={gName}
+                    onChange={gNameChange}
+                >
+                {initial.map(ini => (
+                    <MenuItem value={ini.value}>{ini.initial}</MenuItem>
+                ))}
+                </Select>
+            </FormControl>
+
+            <FormControl className={classes.formControl}>
+                <InputLabel id="demo-simple-select-label">性別</InputLabel>
+                <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                        value={age}
+                    onChange={handleChange}
+                >
+                    <MenuItem value={10}>男性</MenuItem>
+                    <MenuItem value={20}>女性</MenuItem>
+                </Select>
+            </FormControl>
+            <div>
+            </div>
         </div>
     );
 }

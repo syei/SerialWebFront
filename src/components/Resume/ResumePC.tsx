@@ -69,13 +69,16 @@ const useStyles = makeStyles((theme: Theme) =>
         headerTitle: {
             textAlign: "center",
             fontSize: "30px",
-            fontWeight: 500,
+            fontWeight: 700,
         },
         tabs: {
             borderRight: `1px solid ${theme.palette.divider}`,
             minWidth: "250px",
         },
-
+        tabsTitle: {
+            fontSize: "23px",
+            fontWeight: 300,
+        },
     }),
 );
 
@@ -98,10 +101,10 @@ function ResumePC() {
                 aria-label="Vertical tabs example"
                 className={classes.tabs}
             >
-                <Tab label="基本情報" {...a11yProps(0)} />
-                <Tab label="スキルセット" {...a11yProps(1)} />
-                <Tab label="業務内容" {...a11yProps(2)} />
-                <Tab label="その他" {...a11yProps(3)} />
+                <Tab label={<span className={classes.tabsTitle}>基本情報</span>} {...a11yProps(0)} />
+                <Tab label={<span className={classes.tabsTitle}>スキルセット</span>} {...a11yProps(1)} />
+                <Tab label={<span className={classes.tabsTitle}>業務内容</span>} {...a11yProps(2)} />
+                <Tab label={<span className={classes.tabsTitle}>その他</span>} {...a11yProps(3)} />
             </Tabs>
             <div className={classes.rootResume}>
                 <p className={classes.headerTitle}>
