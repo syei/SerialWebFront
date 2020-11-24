@@ -26,6 +26,22 @@ const useStyles = makeStyles((theme: Theme) =>
             minWidth: "300px",
             margin: "15px",
         },
+        resumeCertification: {
+            minWidth: "600px",
+            marginTop: "5px",
+            marginRight: "15px",
+            marginLeft: "15px",
+        },
+        resumeTextArea: {
+            minWidth: "300px",
+            margin: "15px",
+        },
+        resumePortfolio: {
+            minWidth: "600px",
+            marginTop: "15px",
+            marginRight: "15px",
+            marginLeft: "15px",
+        },
         resumeInitial: {
             minWidth: "200px",
             margin: "15px",
@@ -40,12 +56,11 @@ const useStyles = makeStyles((theme: Theme) =>
             fontWeight: 500,
         },
         formControl: {
-            minWidth: "100px",
+            minWidth: "135px",
             margin: "15px",
         },
     }),
 );
-
 
 function BasicInfoPC() {
     const classes = useStyles();
@@ -54,16 +69,16 @@ function BasicInfoPC() {
     const [gender, setGender] = React.useState('');
     const [age, setAge] = React.useState('');
 
-    const fNameChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    const fNameChange = (event: React.ChangeEvent<{ value: any }>) => {
         setFName(event.target.value as string);
      };
-    const gNameChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    const gNameChange = (event: React.ChangeEvent<{ value: any }>) => {
         setGName(event.target.value as string);
     };
-    const genderChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    const genderChange = (event: React.ChangeEvent<{ value: any }>) => {
         setGender(event.target.value as string);
     };
-    const ageChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    const ageChange = (event: React.ChangeEvent<{ value: any }>) => {
         setAge(event.target.value as string);
     };
 
@@ -140,6 +155,54 @@ function BasicInfoPC() {
                             ))}
                         </Select>
                     </FormControl>
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        id="standard-multiline-flexible"
+                        multiline
+                        className={classes.resumeTextArea}
+                        label="住所（県）"
+                    />
+                    <TextField
+                        id="standard-multiline-flexible"
+                        multiline
+                        className={classes.resumeTextArea}
+                        label="住所（市）"
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        id="standard-multiline-flexible"
+                        multiline
+                        className={classes.resumeTextArea}
+                        label="最寄駅"
+                    />
+                    <TextField
+                        id="standard-multiline-flexible"
+                        multiline
+                        className={classes.resumeTextArea}
+                        label="最終学歴"
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        id="standard-multiline-static"
+                        label="ポートフォリオ"
+                        multiline
+                        rows={2}
+                        className={classes.resumePortfolio}
+                        helperText="※複数記入可"
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        id="standard-multiline-static"
+                        label="保有資格"
+                        multiline
+                        rows={2}
+                        className={classes.resumeCertification}
+                        helperText="例）普通自動車第一種運転免許 等　※複数記入可"
+                    />
                 </Grid>
                 <Grid item xs={12}>
                 </Grid>

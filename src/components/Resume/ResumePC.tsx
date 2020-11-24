@@ -74,6 +74,7 @@ const useStyles = makeStyles((theme: Theme) =>
         tabs: {
             borderRight: `1px solid ${theme.palette.divider}`,
             minWidth: "250px",
+            paddingTop: "20px",
         },
         tabsTitle: {
             fontSize: "23px",
