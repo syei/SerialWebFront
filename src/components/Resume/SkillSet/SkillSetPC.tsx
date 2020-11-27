@@ -2,6 +2,7 @@ import React from "react";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import {
+    Button,
     Grid,
     InputLabel,
     FormControl,
@@ -10,6 +11,7 @@ import {
     TextField,
 } from "@material-ui/core";
 
+import PGSkillComponent from "./PGSkill/index";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -29,6 +31,9 @@ const useStyles = makeStyles((theme: Theme) =>
             aligin: "center",
             textAlign: "center",
         },
+        buttom: {
+            backgroundColor: "#d5e55f",
+        },
         skill: {
             minWidth: "300px",
             margin: "15px",
@@ -39,6 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function SkillSetPC() {
     const classes = useStyles();
+
 
     return (
         <div className={classes.root}>
@@ -61,6 +67,7 @@ function SkillSetPC() {
                     />
                 </Grid>
                 <Grid item xs={12}>
+                    <PGSkillComponent/>
                 </Grid>
             </Grid>
 

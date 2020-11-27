@@ -3,12 +3,12 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import {
     Box,
-    Grid,
+    Divider,
     Tab,
     Tabs,
     TextField,
     Typography,
-    Paper
+    Paper,
 } from "@material-ui/core";
 
 import BasicInfoComponent from "./BasicInfo/index";
@@ -111,7 +111,7 @@ function ResumePC() {
                 <p className={classes.headerTitle}>
                     職務経歴書
                 </p>
-                <hr className={classes.headerLine}/>
+                <Divider variant="middle" />
                 {/*経歴のジャンルを選択して修正する画面*/}
                 <TabPanel value={value} index={0}>
                     <BasicInfoComponent/>

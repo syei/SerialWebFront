@@ -2,56 +2,83 @@ import React from "react";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import {
-    Box,
+    Button,
     Grid,
-    Tab,
-    Tabs,
-    TextField,
-    Typography,
-    Paper
 } from "@material-ui/core";
 
 
-import sea from '../../images/sea.jpg'
-
+import CareerComponent from './Career/index';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             flexGrow: 1,
             backgroundColor: theme.palette.background.paper,
-            display: 'flex',
+            display: 'inline-block',
             // height: 224,
             minHeight: "550px",
         },
-        rootResume: {
-            marginRight: "auto",
-            marginLeft: "auto",
-        },
-        headerLine: {
-            width: "550px",
-            aligin: "center",
-        },
-        headerTitle: {
+        skillSetTitle: {
             textAlign: "center",
-            fontSize: "30px",
+            fontSize: "25px",
             fontWeight: 500,
         },
-        tabs: {
-            borderRight: `1px solid ${theme.palette.divider}`,
-            minWidth: "250px",
+        basicContents: {
+            aligin: "center",
+            textAlign: "center",
         },
-
+        buttom: {
+            backgroundColor: "#d5e55f",
+        },
+        skill: {
+            minWidth: "300px",
+            margin: "10px",
+        },
+        skillSpan: {
+            maxWidth: "140px",
+            margin: "10px",
+        },
+        skillContents: {
+            minWidth: "550px",
+            margin: "10px",
+        },
     }),
 );
 
-
 function BusinessContentPC() {
     const classes = useStyles();
+    const [selectedDate1, setSelectedDate1] = React.useState<Date | null>(
+        new Date('2021-01-01T00:00:00'),
+    );
+    const [selectedDate2, setSelectedDate2] = React.useState<Date | null>(
+        new Date('2021-01-01T00:00:00'),
+    );
+
+    const handleDateChange1 = (date: Date | null) => {
+        setSelectedDate1(date);
+    };
+    const handleDateChange2 = (date: Date | null) => {
+        setSelectedDate2(date);
+    };
 
     return (
         <div className={classes.root}>
-
+            <p className={classes.skillSetTitle}>業務内容</p>
+            <Grid container spacing={3} className={classes.basicContents}>
+                <Grid item xs={12}>
+                    <Button
+                        variant="contained"
+                        className={classes.buttom}
+                        href="#contained-buttons"
+                        // onClick={}
+                    >
+                        経歴追加
+                    </Button>
+                </Grid>
+                <Grid item  xs={12}>
+                    <CareerComponent/>
+                </Grid>
+           </Grid>
         </div>
     );
 }

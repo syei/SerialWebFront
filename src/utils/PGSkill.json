@@ -1,0 +1,15 @@
+[
+  {"value": 1, "skill": "Python"},
+  {"value": 2, "skill": "Go"},
+  {"value": 3, "skill": "kotlin"},
+  {"value": 4, "skill": "Swift"},
+  {"value": 5, "skill": "C#"},
+  {"value": 6, "skill": "C++"},
+  {"value": 7, "skill": "C"},
+  {"value": 8, "skill": "Java"},
+  {"value": 9, "skill": "php"},
+  {"value": 10, "skill": "Ruby"},
+  {"value": 11, "skill": "Vue.js"},
+  {"value": 12, "skill": "React.js"},
+  {"value": 13, "skill": "Anguler.js"}
+]
